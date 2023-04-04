@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  typeorm-vs-prisma-db:
+    image: postgres:14.7@sha256:20ca3cae0626ba55c512d687adf72e3055e1233b074d9f80d379dcc012cc63b6
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    entrypoint: sh -c "
+      echo \"psql -v ON_ERROR_STOP=1 --username postgres postgres <<-EOSQL\\n
+      CREATE USER test WITH CREATEDB PASSWORD 'typeormvsprisma';\\n
+      CREATE DATABASE typeormvsprisma;\\nEOSQL\" > /docker-entrypoint-initdb.d/init-databases.sh;
+      docker-entrypoint.sh postgres
+      "

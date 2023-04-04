@@ -19,7 +19,7 @@ export class Example {
   @Column({
     type: "timestamptz",
     transformer: {
-      to: (value: Instant) => value.toString(),
+      to: (value: Instant) => value.toJSON(),
       from: (value: Date) => {
         return nativeJs(value).toInstant();
       },

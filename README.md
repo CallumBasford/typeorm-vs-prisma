@@ -2,6 +2,12 @@
 
 A quick repository to demo the problem with Prisma when handling dates vs what TypeORM is capable of.
 
+## To Run
+
+- Install dependencies with `yarn`
+- Start the local database with `yarn db:start`
+- Run the migration of the local database, I used Prisma for this myself - `npx prisma migrate dev`
+
 ## TypeORM
 
 In TypeORM we can specify `transformer` properties on our columns which transform values from the database immediately after querying

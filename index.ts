@@ -9,6 +9,9 @@ const testPrisma = async () => {
   const prismaExample = await prisma.example.findFirst();
 
   console.log(prismaExample);
+
+  //   This is a native JS Date
+  prismaExample?.exampleDateTime;
 };
 
 const testTypeOrm = async () => {
@@ -16,6 +19,9 @@ const testTypeOrm = async () => {
     .then(async () => {
       const examples = await AppDataSource.manager.find(Example);
       console.log(examples);
+
+      //   This is already a JS Joda Instant
+      examples[0].exampleDateTime;
     })
     .catch((error) => console.log(error));
 };

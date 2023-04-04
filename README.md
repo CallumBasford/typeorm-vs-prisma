@@ -2,6 +2,8 @@
 
 A quick repository to demo the problem with Prisma when handling dates vs what TypeORM is capable of.
 
+This repository shares one database and the schemas for Prisma and TypeORM are the same.
+
 ## To Run
 
 - Install dependencies with `yarn`
